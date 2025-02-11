@@ -1,0 +1,21 @@
+# Liquidity Analysis in Python
+import pandas as pd
+
+# Sample financial data
+data = {
+    "Company": ["Company A", "Company B", "Company C"],
+    "Current Assets": [50000, 60000, 55000],
+    "Current Liabilities": [20000, 25000, 24000],
+    "Inventory": [10000, 12000, 11000],
+    "Cash": [15000, 18000, 16000]
+}
+
+df = pd.DataFrame(data)
+
+# Calculate Liquidity Ratios
+df["Current Ratio"] = df["Current Assets"] / df["Current Liabilities"]
+df["Quick Ratio"] = (df["Current Assets"] - df["Inventory"]) / df["Current Liabilities"]
+df["Cash Ratio"] = df["Cash"] / df["Current Liabilities"]
+
+# Display results
+print(df[["Company", "Current Ratio", "Quick Ratio", "Cash Ratio"]])
